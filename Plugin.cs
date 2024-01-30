@@ -18,13 +18,16 @@ namespace FruitysLethalMod
         private const string modName = "FruitysLethalMod";
         private const string modVersion = "0.0.1";
 
-        public static ConfigEntry<float> configSprinting;
-
+        public static ConfigEntry<float> configSprintingMultiplier;
+        public static ConfigEntry<bool> configInfiniteSprint;
+        
         private readonly Harmony harmony = new Harmony(modGUID);
 
         private static FruitysModBase Instance;
 
         internal ManualLogSource mls;
+
+        // 
 
         void Awake()
         {
@@ -38,10 +41,13 @@ namespace FruitysLethalMod
             mls.LogInfo("Fruitys mod has loaded");
     
             harmony.PatchAll(typeof(FruitysModBase));
+
             harmony.PatchAll(typeof(PlayerControlledBPatch));
+            harmony.PatchAll(typeof(JetpackItemPatch));
 
-            configSprinting = Config.Bind("Sprinting", "SprintMultiplier", 2f, "The multiplier you want applied when sprinting."); //Category, Name, Value, Desc
-
+            //Config Shits
+            configSprintingMultiplier = Config.Bind("Sprinting", "SprintMultiplier", 2f, "The multiplier you want applied when sprinting."); //Category, Name, Value, Desc
+            configInfiniteSprint = Config.Bind("Sprinting", "InfiniteSprint", true, "Infinitely sprint?"); //Category, Name, Value, Desc 
         }
     }
 }

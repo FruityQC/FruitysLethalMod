@@ -59,9 +59,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Patches\JetpackItemPatch.cs" />
     <Compile Include="Patches\PlayerControlledBPatch.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Releases\manifest.json" />
+    <None Include="Releases\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Releases\BepInEx\plugins\CustomSounds\FruitysSounds\IcecreamTruckV2.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

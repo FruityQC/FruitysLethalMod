@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FruitysLethalMod.Patches
+namespace FruitysLethalMod.Patches //?
 {
     [HarmonyPatch(typeof(PlayerControllerB))]
     internal class PlayerControlledBPatch
@@ -18,13 +18,17 @@ namespace FruitysLethalMod.Patches
         static void ModifySprint(ref float ___sprintMeter, ref bool ___isSprinting, ref float ___sprintMultiplier)
         {
             // Infinite Sprint
-            ___sprintMeter = 1f;
+            if (FruitysModBase.configInfiniteSprint.Value)
+            {
+                ___sprintMeter = 1f; //Stamina
+            }
+            
 
             // Faster Sprint when sprinting
-            float sprintMultiplier = FruitysModBase.configSprinting;
+            float sprintMultiplier = FruitysModBase.configSprintingMultiplier.Value;
             if (___isSprinting)
             {
-                ___sprintMultiplier = sprintMultiplier;
+                ___sprintMultiplier = sprintMultiplier; //just read
             }
         }
     }
