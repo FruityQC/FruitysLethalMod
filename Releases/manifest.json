@@ -1,0 +1,10 @@
+{
+  "name": "Fruitys-NotSoLethal",
+  "version_number": "0.0.1",
+  "website_url": "https://github.com/FruityQC/FruitysLethalMod",
+  "description": "Makes LC easier and funnier !",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100",
+    "Clementinise-CustomSounds-2.3.2"
+  ]
+}
